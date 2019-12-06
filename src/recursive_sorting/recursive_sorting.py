@@ -9,7 +9,7 @@ def partition(data):
 
 
 def quick_sort(nums):
-    if len(nums) == 1:
+    if len(nums) <= 1:
         return nums
     left, right, pivot = partition(nums)
     return quick_sort(left) + [pivot] + quick_sort(right)
