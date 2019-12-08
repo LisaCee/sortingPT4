@@ -19,22 +19,22 @@ def quick_sort(nums):
 
 def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
-    merged_arr = [0] * elements
+    merged_arr = []
     # TO-DO
     while len(arrA) > 0 and len(arrB) > 0:
-        if arrA[0] > arrB[0]:
-            merged_arr.append(arrB[0])
-            arrB.remove(arrB[0])
+        i = 0
+        if arrA[i] > arrB[i]:
+            merged_arr.append(arrB[i])
+            arrB.remove(arrB[i])
         else:
-            merged_arr.append(arrA[0])
-            arrA.remove(arrA[0])
+            merged_arr.append(arrA[i])
+            arrA.remove(arrA[i])
     while len(arrA) > 0:
-        merged_arr.append(arrA[0])
-        arrA.remove(arrA[0])
+        merged_arr.append(arrA[i])
+        arrA.remove(arrA[i])
     while len(arrB) > 0:
-        merged_arr.append(arrB[0])
-        arrA.remove(arrA[0])
-
+        merged_arr.append(arrB[i])
+        arrB.remove(arrB[i])
     return merged_arr
 
 
@@ -44,15 +44,12 @@ def merge_sort(arr):
     if len(arr) == 1:
         return arr
 
-    arrA, arrB = [], []
-    arrA.append(arr[0: len(arr)//2])
-    arrB.append(arr[len(arr) // 2:])
+    arrA, arrB = arr[0: len(arr)//2], arr[len(arr) // 2:]
 
     arrA = merge_sort(arrA)
     arrB = merge_sort(arrB)
 
-    merge(arrA, arrB)
-    return arr
+    return merge(arrA, arrB)
 
 
 # STRETCH: implement an in-place merge sort algorithm
