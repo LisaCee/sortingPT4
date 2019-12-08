@@ -22,19 +22,18 @@ def merge(arrA, arrB):
     merged_arr = []
     # TO-DO
     while len(arrA) > 0 and len(arrB) > 0:
-        i = 0
-        if arrA[i] > arrB[i]:
-            merged_arr.append(arrB[i])
-            arrB.remove(arrB[i])
+        if arrA[0] > arrB[0]:
+            merged_arr.append(arrB[0])
+            arrB.remove(arrB[0])
         else:
-            merged_arr.append(arrA[i])
-            arrA.remove(arrA[i])
+            merged_arr.append(arrA[0])
+            arrA.remove(arrA[0])
     while len(arrA) > 0:
-        merged_arr.append(arrA[i])
-        arrA.remove(arrA[i])
+        merged_arr.append(arrA[0])
+        arrA.remove(arrA[0])
     while len(arrB) > 0:
-        merged_arr.append(arrB[i])
-        arrB.remove(arrB[i])
+        merged_arr.append(arrB[0])
+        arrB.remove(arrB[0])
     return merged_arr
 
 
@@ -50,9 +49,9 @@ def merge_sort(arr):
     arrB = merge_sort(arrB)
 
     return merge(arrA, arrB)
-
-
 # STRETCH: implement an in-place merge sort algorithm
+
+
 def merge_in_place(arr, start, mid, end):
     # TO-DO
 
